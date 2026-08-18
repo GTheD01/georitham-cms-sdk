@@ -42,7 +42,7 @@ Initial public release.
   time, replays outside `DEFAULT_TOLERANCE_SECONDS` (300s) are rejected, and all
   three header-source shapes are accepted. Edge-safe, and re-exported from the main
   entry point.
-- **CLI** — `georitham-cms` with `init`, `pull`, `watch` and `inspect`.
+- **CLI** — `georitham-cms` with `init`, `pull`, `watch`, `manifest` and `page`.
   The `CMS_ORIGIN` environment variable overrides the default origin.
 
 ### Notes
