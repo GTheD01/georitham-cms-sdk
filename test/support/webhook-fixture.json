@@ -1,0 +1,7 @@
+{
+  "_comment": "Produced by the CMS itself, not by this package: `cms.services.webhooks.serialize` for the body and `.sign` for the signature. If a change here makes these fail, the two implementations have stopped agreeing — which is exactly what this fixture exists to catch.",
+  "secret": "a4f1c9e2b7d84f0a9c3e5b1d7f2a8c604e9b3d1a6c8f2e5b0d7a9c3f1e6b4d82",
+  "timestamp": "1770000000",
+  "body": "{\"content_version\":12,\"event\":\"page.published\",\"page\":{\"id\":7,\"locale\":\"de\",\"slug\":\"landing-page\",\"status\":\"published\",\"title\":\"Startseite\",\"url_path\":\"/landing-page\"},\"site\":\"georitham\",\"version\":{\"number\":3,\"published_at\":\"2026-08-18T09:15:00+00:00\"}}",
+  "signature": "sha256=2bd31ba31ab672c50e32aa90d550e9c8f30973a0f5594bdd1533ea292652e616"
+}
