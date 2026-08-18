@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    tags: ['v*']
+    tags: ["v*"]
 
 jobs:
   publish:
@@ -10,8 +10,6 @@ jobs:
 
     permissions:
       contents: read
-      # Required for npm provenance — this is what lets npm attest that the
-      # tarball was built from this repo at this commit.
       id-token: write
 
     steps:
@@ -19,9 +17,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
+
+      # Trusted publishing needs npm >= 11.5.1; the bundled npm may be older.
+      - name: Ensure npm supports trusted publishing
+        run: |
+          npm install -g npm@latest
+          npm -v
 
       - run: npm ci
 
@@ -36,7 +40,9 @@ jobs:
           fi
           echo "Publishing version $PKG"
 
+      # Authenticated by OIDC via the trusted publisher configured on npmjs.com,
+      # so there is no NODE_AUTH_TOKEN here by design. Provenance is generated
+      # automatically under trusted publishing — no --provenance flag needed.
+      #
       # `prepublishOnly` re-runs the full build and test suite before upload.
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
