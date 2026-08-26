@@ -319,18 +319,6 @@ no body until something actually changes.
 Webhooks are for your *deployed* site, where you have a server that can be
 reached; see above.
 
-## Pointing somewhere else
-
-`origin` and `CMS_ORIGIN` exist for the cases where the CMS is not the hosted
-one — a self-hosted instance, a staging copy, or a local instance while working
-on the CMS itself:
-
-```bash
-CMS_ORIGIN=http://127.0.0.1:8000 npx georitham-cms pull
-```
-
-Most projects never set it.
-
 ## Contributing
 
 Bugs and feature requests go to
