@@ -5,6 +5,23 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2026-08-27
+
+### Added
+
+- **Sections** — `ServiceItem` gains `points`, the long form of the same
+  service for a page that renders the list twice, and `featured`, matching the
+  flag `PricingPlan` already carried. `PricingPlan` gains `badge`, the label
+  shown above the plan name ("Most booked", "New").
+
+### Notes
+
+- The three new fields are required rather than optional: the CMS always sends
+  them, empty where an editor left them blank, so they can be read without a
+  presence check. Code that only reads sections off a page is unaffected;
+  anything that constructs a `ServiceItem` or `PricingPlan` literal — test
+  fixtures, mocks — needs to add them.
+
 ## [0.1.0] — 2026-08-18
 
 Initial public release.
@@ -52,4 +69,5 @@ Initial public release.
   runs unchanged in a Cloudflare Worker, a Next.js route, a build script or a
   browser. Only `georitham-cms-sdk/snapshot` and the CLI require Node.
 
+[0.2.0]: https://github.com/GTheD01/georitham-cms-sdk/releases/tag/v0.2.0
 [0.1.0]: https://github.com/GTheD01/georitham-cms-sdk/releases/tag/v0.1.0
