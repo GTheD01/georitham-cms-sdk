@@ -55,6 +55,13 @@ export interface ServiceItem {
   title: string;
   body: string;
   link: CmsLink;
+  /**
+   * The long form of the same service, for a page that shows the list twice:
+   * `body` sells it, these say what is actually done. Empty where an editor
+   * only wanted the blurb.
+   */
+  points: string[];
+  featured: boolean;
 }
 
 export interface ServicesSection extends SectionBase<'services'> {
@@ -106,6 +113,8 @@ export interface PricingPlan {
   features: string[];
   cta: CmsLink;
   featured: boolean;
+  /** “Most booked”, “New”. Shown above the name; empty on most plans. */
+  badge: string;
 }
 
 export interface PricingSection extends SectionBase<'pricing'> {
